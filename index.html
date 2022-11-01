@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <!-- <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'"
+    /> -->
+    <!-- <meta
+      http-equiv="X-Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'"
+    /> -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+
+    <!-- Load the custom CSS style file -->
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+    <title>Electron Music Player</title>
+  </head>
+  <body>
+    <div class="player">
+      <nav>
+        <div class="left">
+          <!-- <i class="material-icons">menu</i> -->
+          <h6>SE Music Player</h6>
+        </div>
+      </nav>
+      <div class="player-ui">
+        <div class="title">
+          <h3 class="track-name"></h3>
+        </div>
+        <div class="small">
+          <!-- <i class="material-icons">replay</i> -->
+          <p class="track-artist"></p>
+          <!-- <i class="material-icons">volume_up</i> -->
+        </div>
+        <!-- <div class="progress">
+          <div class="played">
+            <div class="circle"></div>
+          </div>
+        </div> -->
+        <div class="progress-container" id="progress-container">
+          <div class="progress" id="progress"></div>
+        </div>
+
+        <div class="controls">
+          <div class="prev-track" onclick="prevTrack()">
+            <i class="material-icons">skip_previous</i>
+          </div>
+          <div class="playpause-track" onclick="playpauseTrack()">
+            <i class="material-icons">play_arrow</i>
+          </div>
+          <div class="next-track" onclick="nextTrack()">
+            <i class="material-icons">skip_next</i>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="btn">
+        <i class="material-icons">shuffle</i>
+      </div> -->
+
+      <div class="music">
+        <div class="song">
+          <div class="info">
+            <div class="img"></div>
+            <div class="titles">
+              <h5 class="track-name1">Summer</h5>
+              <p class="track-artist1">Artist1</p>
+            </div>
+          </div>
+        </div>
+        <div class="song">
+          <div class="info">
+            <div class="img"></div>
+            <div class="titles">
+              <h5 class="track-name2">Song2</h5>
+              <p class="track-artist2">Artist2</p>
+            </div>
+          </div>
+        </div>
+        <div class="song">
+          <div class="info">
+            <div class="img"></div>
+            <div class="titles">
+              <h5 class="track-name3">Song3</h5>
+              <p class="track-artist3">Artist3</p>
+            </div>
+          </div>
+        </div>
+        <div class="song">
+          <div class="info">
+            <div class="img"></div>
+            <div class="titles">
+              <h5 class="track-name4">Song4</h5>
+              <p class="track-artist4">Artist4</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="song">
+          <div class="info">
+            <div class="img"></div>
+            <div class="titles">
+              <h5 class="track-name5">Summer</h5>
+              <p class="track-artist5">Artist1</p>
+            </div>
+          </div>
+        </div>
+        <div class="song">
+          <div class="info">
+            <div class="img"></div>
+            <div class="titles">
+              <h5 class="track-name6">Song2</h5>
+              <p class="track-artist6">Artist2</p>
+            </div>
+          </div>
+        </div>
+        <div class="song">
+          <div class="info">
+            <div class="img"></div>
+            <div class="titles">
+              <h5 class="track-name7">Song3</h5>
+              <p class="track-artist7">Artist3</p>
+            </div>
+          </div>
+        </div>
+        <div class="song">
+          <div class="info">
+            <div class="img"></div>
+            <div class="titles">
+              <h5 class="track-name8">Song4</h5>
+              <p class="track-artist8">Artist4</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="song">
+          <div class="info">
+            <div class="img"></div>
+            <div class="titles">
+              <h5 class="track-name9">Summer</h5>
+              <p class="track-artist9">Artist1</p>
+            </div>
+          </div>
+        </div>
+        <div class="song">
+          <div class="info">
+            <div class="img"></div>
+            <div class="titles">
+              <h5 class="track-name10">Song2</h5>
+              <p class="track-artist10">Artist2</p>
+            </div>
+          </div>
+        </div>
+        <div class="song">
+          <div class="info">
+            <div class="img"></div>
+            <div class="titles">
+              <h5 class="track-name11">Song3</h5>
+              <p class="track-artist11">Artist3</p>
+            </div>
+          </div>
+        </div>
+        <div class="song">
+          <div class="info">
+            <div class="img"></div>
+            <div class="titles">
+              <h5 class="track-name12">Song4</h5>
+              <p class="track-artist12">Artist4</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./index.js"></script>
+  </body>
+</html>

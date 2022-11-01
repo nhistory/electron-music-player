@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap');
+
+* {
+  box-sizing: border-box;
+  user-select: none;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  align-items: center;
+  color: #403d39;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1em;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1em;
+}
+
+body {
+  background: #403d39;
+  display: flex;
+  justify-content: center;
+}
+
+i {
+  cursor: pointer;
+}
+
+.player {
+  overflow: hidden;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.6);
+  /* position: relative; */
+  width: 320px;
+  height: 600px;
+  /* background-size: contain; */
+  /* background-repeat: no-repeat; */
+}
+
+nav {
+  margin-top: 5px;
+  position: relative;
+  z-index: 3;
+  min-height: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 15px;
+}
+
+h6 {
+  margin: 0;
+  padding-left: 5px;
+  color: #fffcf2;
+  font-size: 18px;
+  font-weight: 100;
+}
+
+.player-ui {
+  position: relative;
+  z-index: 3;
+  padding-top: 30px;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+}
+
+.title h3 {
+  margin: 0;
+  color: #fffcf2;
+  font-size: 25px;
+  font-weight: 200;
+}
+
+.small {
+  padding: 15px 35px 0px 35px;
+  display: flex;
+  justify-content: center;
+}
+
+.small p {
+  margin: 0;
+  color: #ccc5b9;
+  font-size: 14px;
+  align-items: center;
+  font-weight: 100;
+}
+
+.progress-container {
+  position: relative;
+  height: 2px;
+  margin: 30px 20px 0px 20px;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.progress {
+  background-color: #eb5e28;
+  border-radius: 5px;
+  height: 100%;
+  width: 0%;
+  /* transition: width 0.1s linear; */
+}
+
+/* Play, Previous, Next button */
+.controls {
+  display: flex;
+  justify-content: space-between;
+  padding: 25px 50px 0px 50px;
+}
+
+.controls i {
+  color: #fffcf2;
+  font-size: 32px;
+}
+
+.music {
+  overflow: auto;
+  height: 360px;
+  padding: 10px 20px 0px 20px;
+  background: #252422;
+  margin-top: 24px;
+}
+
+.music::-webkit-scrollbar {
+  width: 10px;
+  background-color: #252422;
+}
+
+.music::-webkit-scrollbar-thumb {
+  background-color: #5f5b55;
+}
+
+.song {
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.info {
+  display: flex;
+  align-items: center;
+}
+
+.img {
+  width: 60px;
+  height: 60px;
+  margin-right: 10px;
+  background: url('./images/european-jazz-trio-dancing-queen.jpg') center center;
+  background-size: cover;
+}
+
+.info .titles h5,
+.info .titles p {
+  margin: 0;
+  color: #fffcf2;
+  margin-left: 5px;
+}
+
+.info .titles h5 {
+  font-size: 15px;
+  font-weight: 100;
+  margin-bottom: 7px;
+}
+
+.info .titles p {
+  font-size: 13px;
+  color: #ccc5b9;
+  font-weight: 200;
+}

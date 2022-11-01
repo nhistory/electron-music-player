@@ -1,0 +1,26 @@
+{
+  "name": "electron-musicplayer",
+  "version": "1.0.0",
+  "description": "NSCC IT Web Programming Course - Special Topics",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mt-nscc/assignment-1-nhistory-1.git"
+  },
+  "author": "Sehwan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mt-nscc/assignment-1-nhistory-1/issues"
+  },
+  "homepage": "https://github.com/mt-nscc/assignment-1-nhistory-1#readme",
+  "devDependencies": {
+    "electron": "^20.1.4"
+  },
+  "dependencies": {
+    "fs": "0.0.1-security",
+    "music-metadata": "^7.13.0"
+  }
+}
