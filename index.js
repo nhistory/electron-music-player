@@ -1,14 +1,15 @@
-const playpauseBtn = document.querySelector(".playpause-track");
-const trackName = document.querySelector(".track-name");
-const trackArtist = document.querySelector(".track-artist");
-const progress = document.getElementById("progress");
-const progressContainer = document.getElementById("progress-container");
+const playpauseBtn = document.querySelector('.playpause-track');
+const trackName = document.querySelector('.track-name');
+const albumName = document.querySelector('.album-name');
+const trackArtist = document.querySelector('.track-artist');
+const progress = document.getElementById('progress');
+const progressContainer = document.getElementById('progress-container');
 
 let isPlaying = false;
 let trackIndex = 0;
 
 // Create new audio element
-let currTrack = document.createElement("audio");
+let currTrack = document.createElement('audio');
 
 // Define the tracks that have to be played
 let trackList = [];
@@ -26,6 +27,12 @@ window.electronAPI.sendSonglist(async (_event, value) => {
       trackList[i].songName;
     document.querySelector(`.track-artist${i + 1}`).textContent =
       trackList[i].artist;
+    // console.log(
+    //   'data:' +
+    //     trackList[i].image.format +
+    //     ';base64, ' +
+    //     trackList[i].image.data
+    // );
   }
 });
 
@@ -51,6 +58,7 @@ function loadTrack(trackIndex) {
   currTrack.load();
 
   trackName.textContent = trackList[trackIndex].songName;
+  albumName.textContent = trackList[trackIndex].album;
   trackArtist.textContent = trackList[trackIndex].artist;
 }
 
@@ -105,7 +113,7 @@ function setProgress(e) {
 }
 
 // Time/song update
-currTrack.addEventListener("timeupdate", updateProgress);
+currTrack.addEventListener('timeupdate', updateProgress);
 
 // Click on progress bar
-progressContainer.addEventListener("click", setProgress);
+progressContainer.addEventListener('click', setProgress);

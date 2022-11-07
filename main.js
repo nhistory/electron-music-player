@@ -1,9 +1,9 @@
-const { app, BrowserWindow, ipcMain } = require("electron");
-const fs = require("fs");
-const path = require("path");
-const { pathToFileURL } = require("url");
-const { parseFile } = require("music-metadata");
-const { inspect } = require("util");
+const { app, BrowserWindow, ipcMain } = require('electron');
+const fs = require('fs');
+const path = require('path');
+const { pathToFileURL } = require('url');
+const { parseFile } = require('music-metadata');
+const { inspect } = require('util');
 
 const createWindow = () => {
   const win = new BrowserWindow({
@@ -11,12 +11,12 @@ const createWindow = () => {
     height: 670,
     // autoHideMenuBar: true,
     webPreferences: {
-      preload: path.join(__dirname, "preload.js"),
+      preload: path.join(__dirname, 'preload.js'),
     },
   });
 
   // win.webContents.openDevTools();
-  win.loadFile("index.html");
+  win.loadFile('index.html');
 
   return win;
 };
@@ -24,10 +24,9 @@ const createWindow = () => {
 app.whenReady().then(() => {
   const mainWindow = createWindow();
 
-  console.log(pathToFileURL("./music").href);
+  console.log(pathToFileURL('./music').href);
 
-  const PATH =
-    "C:\\Users\\w0458329\\Desktop\\Electron\\assignment-3-nhistory-1\\music";
+  const PATH = 'D:\\Coding\\assignment-3-nhistory-1\\music';
   let songList = [];
   let songData = fs.readdirSync(PATH);
 
@@ -37,16 +36,16 @@ app.whenReady().then(() => {
     (async () => {
       try {
         const metadata = await parseFile(
-          PATH + "/" + song,
-          { mimeType: "audio/mpeg", size: 26838 },
+          PATH + '/' + song,
+          { mimeType: 'audio/mpeg', size: 26838 },
           { duration: true }
         );
-        console.log(
-          inspect(metadata.common.album, {
-            showHidden: false,
-            depth: null,
-          })
-        );
+        // console.log(
+        //   inspect(metadata.common.album, {
+        //     showHidden: false,
+        //     depth: null,
+        //   })
+        // );
 
         songList.push({
           track: Number(
@@ -58,24 +57,30 @@ app.whenReady().then(() => {
           songName: inspect(metadata.common.title, {
             showHidden: false,
             depth: null,
-          }).replace(/\'/gi, ""),
-          path: PATH + "/" + song,
+          }).replace(/\'/gi, ''),
+          path: PATH + '/' + song,
           artist: inspect(metadata.common.artist, {
             showHidden: false,
             depth: null,
-          }).replace(/\'/gi, ""),
+          }).replace(/\'/gi, ''),
           genre: inspect(metadata.common.genre, {
             showHidden: false,
             depth: null,
           })
-            .replace(/\'/gi, "")
-            .replace(/\[/gi, "")
-            .replace(/\]/gi, "")
+            .replace(/\'/gi, '')
+            .replace(/\[/gi, '')
+            .replace(/\]/gi, '')
             .trim(),
-          image: inspect(metadata.common.picture[0], {
-            showHidden: false,
-            depth: null,
-          }),
+          image: {
+            format: inspect(metadata.common.picture[0].format, {
+              showHidden: false,
+              depth: null,
+            }).replace(/\'/gi, ''),
+            data: inspect(metadata.common.picture[0].data, {
+              showHidden: false,
+              depth: null,
+            }).replace(/\'/gi, ''),
+          },
           duration: {
             minute: (
               inspect(metadata.format.duration, {
@@ -95,7 +100,7 @@ app.whenReady().then(() => {
           album: inspect(metadata.common.album, {
             showHidden: false,
             depth: null,
-          }).replace(/\'/gi, ""),
+          }).replace(/\'/gi, ''),
         });
 
         // console.log(songList);
@@ -105,17 +110,17 @@ app.whenReady().then(() => {
     })();
   });
 
-  mainWindow.webContents.once("dom-ready", () => {
-    mainWindow.webContents.send("song-endpoint", songList);
+  mainWindow.webContents.once('dom-ready', () => {
+    mainWindow.webContents.send('song-endpoint', songList);
   });
 
-  app.on("activate", () => {
+  app.on('activate', () => {
     if (BrowserWindow.getAllWindows().length === 0) createWindow();
   });
 });
 
-app.on("window-all-closed", () => {
-  if (process.platform !== "darwin") {
+app.on('window-all-closed', () => {
+  if (process.platform !== 'darwin') {
     app.quit();
   }
 });

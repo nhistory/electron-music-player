@@ -59,7 +59,15 @@ h6 {
 .player-ui {
   position: relative;
   z-index: 3;
-  padding-top: 30px;
+  /* padding-top: 15px; */
+}
+
+.img-title {
+  width: 80px;
+  height: 80px;
+  margin: 10px auto;
+  background: url('./images/european-jazz-trio-dancing-queen.jpg') center center;
+  background-size: cover;
 }
 
 .title {
@@ -78,10 +86,11 @@ h6 {
   padding: 15px 35px 0px 35px;
   display: flex;
   justify-content: center;
+  flex-direction: column;
 }
 
 .small p {
-  margin: 0;
+  margin: 0 auto;
   color: #ccc5b9;
   font-size: 14px;
   align-items: center;
@@ -93,6 +102,12 @@ h6 {
   height: 2px;
   margin: 30px 20px 0px 20px;
   background: rgba(255, 255, 255, 0.3);
+}
+
+.progress-container:hover {
+  height: 5px;
+  transition: 0.1s ease-out;
+  border-radius: 5px;
 }
 
 .progress {
