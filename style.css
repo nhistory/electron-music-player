@@ -32,7 +32,7 @@ i {
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.6);
   /* position: relative; */
   width: 320px;
-  height: 600px;
+  height: 680px;
   /* background-size: contain; */
   /* background-repeat: no-repeat; */
 }
@@ -130,58 +130,64 @@ h6 {
   font-size: 32px;
 }
 
-.music {
+.table {
   overflow: auto;
   height: 360px;
-  padding: 10px 20px 0px 20px;
-  background: #252422;
   margin-top: 24px;
 }
 
-.music::-webkit-scrollbar {
+table {
+  height: 360px;
+  width: 100%;
+  padding: 10px 20px 10px 20px;
+  background: #252422;
+}
+
+.table::-webkit-scrollbar {
   width: 10px;
   background-color: #252422;
 }
 
-.music::-webkit-scrollbar-thumb {
+.table::-webkit-scrollbar-thumb {
   background-color: #5f5b55;
 }
 
-.song {
+tr {
   height: 80px;
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   align-items: center;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.info {
+th {
   display: flex;
-  align-items: center;
+  text-align: left;
+  flex-direction: column;
 }
 
-.img {
+th img {
   width: 60px;
   height: 60px;
   margin-right: 10px;
-  background: url('./images/european-jazz-trio-dancing-queen.jpg') center center;
+  /* background: url('./images/european-jazz-trio-dancing-queen.jpg') center center; */
   background-size: cover;
 }
 
-.info .titles h5,
-.info .titles p {
+th h5,
+th p {
   margin: 0;
   color: #fffcf2;
   margin-left: 5px;
 }
 
-.info .titles h5 {
+th h5 {
   font-size: 15px;
   font-weight: 100;
   margin-bottom: 7px;
 }
 
-.info .titles p {
+th p {
   font-size: 13px;
   color: #ccc5b9;
   font-weight: 200;
