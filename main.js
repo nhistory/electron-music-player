@@ -8,7 +8,7 @@ const { inspect } = require('util');
 const createWindow = () => {
   const win = new BrowserWindow({
     width: 338,
-    height: 670,
+    height: 740,
     // autoHideMenuBar: true,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
@@ -79,7 +79,11 @@ app.whenReady().then(() => {
             data: inspect(metadata.common.picture[0].data, {
               showHidden: false,
               depth: null,
-            }).replace(/\'/gi, ''),
+            })
+              .replace(/\'/gi, '')
+              .substring(8)
+              .replace(/\>/gi, '')
+              .toString('utf8'),
           },
           duration: {
             minute: (

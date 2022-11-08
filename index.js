@@ -27,12 +27,12 @@ window.electronAPI.sendSonglist(async (_event, value) => {
       trackList[i].songName;
     document.querySelector(`.track-artist${i + 1}`).textContent =
       trackList[i].artist;
-    // console.log(
-    //   'data:' +
-    //     trackList[i].image.format +
-    //     ';base64, ' +
-    //     trackList[i].image.data
-    // );
+    document.getElementById(`cover${i + 1}`).src =
+      './images/european-jazz-trio-dancing-queen.jpg';
+
+    console.log(
+      'data:' + trackList[i].image.format + ';base64,' + trackList[i].image.data
+    );
   }
 });
 
