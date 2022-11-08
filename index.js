@@ -23,8 +23,9 @@ window.electronAPI.sendSonglist(async (_event, value) => {
   console.log(trackList);
 
   for (let i = 0; i < trackList.length; i++) {
-    document.querySelector(`.track-name${i + 1}`).textContent =
-      trackList[i].songName;
+    document.querySelector(`.track-name${i + 1}`).textContent = `${i + 1}. ${
+      trackList[i].songName
+    }`;
     document.querySelector(`.track-artist${i + 1}`).textContent =
       trackList[i].artist;
     document.getElementById(`cover${i + 1}`).src =
@@ -62,6 +63,19 @@ function loadTrack(trackIndex) {
   trackArtist.textContent = trackList[trackIndex].artist;
 }
 
+function selectTrack(e) {
+  let clickedSongNum =
+    Number(
+      e
+        .getElementsByTagName('th')[1]
+        .getElementsByTagName('h5')[0]
+        .innerText.split('.')[0]
+    ) - 1;
+  console.log(clickedSongNum);
+  loadTrack(clickedSongNum);
+  playTrack();
+}
+
 // Play and pause track
 function playpauseTrack() {
   if (!isPlaying) playTrack();
@@ -86,7 +100,7 @@ function nextTrack() {
   else trackIndex = 0;
   loadTrack(trackIndex);
   playTrack();
-  console.log(trackList);
+  // console.log(trackList);
 }
 
 function prevTrack() {
@@ -101,6 +115,11 @@ function updateProgress(e) {
   const { duration, currentTime } = e.srcElement;
   const progressPercent = (currentTime / duration) * 100;
   progress.style.width = `${progressPercent}%`;
+
+  // let min = parseInt((currentTime % 3600) / 60);
+  // let sec = (currentTime % 60).toFixed(0);
+
+  // console.log(min + ':' + sec);
 }
 
 // Set progress bar
